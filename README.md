@@ -1,3 +1,8 @@
+##Analytics Dashboard
+
+This project is an analytics dashboard built with Next.js and TypeScript, designed to display website visits, page views, unique visitors, and customer data. It uses Tailwind CSS for styling and Recharts for visualizing data.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -5,6 +10,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
+npm istall
+then
 npm run dev
 # or
 yarn dev
