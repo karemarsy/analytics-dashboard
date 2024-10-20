@@ -2,6 +2,19 @@
 
 This project is an analytics dashboard built with Next.js and TypeScript, designed to display website visits, page views, unique visitors, and customer data. It uses Tailwind CSS for styling and Recharts for visualizing data.
 
+##Features
+Interactive Visits Chart: Displays trends of website visits and page views.
+Customer Table: Shows customer data like name, email, signup date, and last activity.
+Mock API Data: Fetches data from a mock API for demo purposes.
+
+##Tech Stack
+Next.js: Server-side rendering and static site generation.
+React: Component-based UI library.
+TypeScript: Adds type safety to the project.
+Tailwind CSS: A utility-first CSS framework for styling.
+Recharts: For data visualization through charts.
+Mockaroo API: Mock API for fetching customer and visit data.
+
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
@@ -19,6 +32,8 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+make sure you're using Node.js >= 18.17.0
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
