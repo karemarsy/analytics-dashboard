@@ -1,20 +1,19 @@
-import { format, parseISO } from 'date-fns';
+import { format, parseISO } from "date-fns";
 import {
-    CartesianGrid,
-    Legend,
-    Line,
-    LineChart,
-    ResponsiveContainer,
-    Tooltip,
-    XAxis,
-    YAxis
-} from 'recharts';
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 interface VisitData {
   date: string;
   pageViews: number;
   uniqueVisitors: number;
-  
 }
 
 interface VisitsChartProps {
@@ -22,9 +21,9 @@ interface VisitsChartProps {
 }
 
 const VisitsChart = ({ data }: VisitsChartProps) => {
-  const formattedData = data.map(item => ({
+  const formattedData = data.map((item) => ({
     ...item,
-    formattedDate: format(parseISO(item.date), 'MMM d')
+    formattedDate: format(parseISO(item.date), "MMM d"),
   }));
 
   return (
@@ -38,16 +37,13 @@ const VisitsChart = ({ data }: VisitsChartProps) => {
           <XAxis
             dataKey="formattedDate"
             tick={{ fontSize: 12 }}
-            tickLine={{ stroke: 'gray' }}
+            tickLine={{ stroke: "gray" }}
           />
-          <YAxis
-            tick={{ fontSize: 12 }}
-            tickLine={{ stroke: 'gray' }}
-          />
+          <YAxis tick={{ fontSize: 12 }} tickLine={{ stroke: "gray" }} />
           <Tooltip
-            contentStyle={{ 
-              backgroundColor: 'white',
-              border: '1px solid #ccc'
+            contentStyle={{
+              backgroundColor: "white",
+              border: "1px solid #ccc",
             }}
           />
           <Legend />

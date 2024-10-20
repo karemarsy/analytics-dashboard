@@ -60,7 +60,7 @@ const CustomerTable = ({ customers }: CustomerTableProps) => {
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-    <TableHead>Email</TableHead>
+              <TableHead>Email</TableHead>
               <TableHead>Signup Date</TableHead>
               <TableHead>Last Activity</TableHead>
             </TableRow>

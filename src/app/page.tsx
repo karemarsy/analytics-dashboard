@@ -1,12 +1,17 @@
 // app/page.tsx
-'use client';
+"use client";
 
-import { Activity, BarChart, Clock } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
-import CustomerTable from './components/CustomerTable';
-import StatsCard from './components/StatsCard';
-import VisitsChart from './components/VisitsChart';
+import { Activity, BarChart, Clock } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
+import CustomerTable from "./components/CustomerTable";
+import StatsCard from "./components/StatsCard";
+import VisitsChart from "./components/VisitsChart";
 
 interface DashboardData {
   visits: Array<{
@@ -33,14 +38,14 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/mock-data');
+        const response = await fetch("/api/mock-data");
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error("Failed to fetch data");
         }
         const result = await response.json();
         setData(result);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setIsLoading(false);
       }
@@ -50,37 +55,49 @@ export default function DashboardPage() {
   }, []);
 
   if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">
-      Loading...
-    </div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        Loading...
+      </div>
+    );
   }
 
   if (error || !data) {
-    return <div className="flex items-center justify-center min-h-screen">
-      Error: {error || 'No data available'}
-    </div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        Error: {error || "No data available"}
+      </div>
+    );
   }
 
   // Calculate summary statistics
-  const totalVisitors = data.visits.reduce((sum, day) => sum + day.uniqueVisitors, 0);
+  const totalVisitors = data.visits.reduce(
+    (sum, day) => sum + day.uniqueVisitors,
+    0
+  );
   const avgBounceRate = (
-    data.visits.reduce((sum, day) => sum + parseFloat(day.bounceRate), 0) / data.visits.length
+    data.visits.reduce((sum, day) => sum + parseFloat(day.bounceRate), 0) /
+    data.visits.length
   ).toFixed(1);
   const avgSessionDuration = Math.floor(
-    data.visits.reduce((sum, day) => sum + day.avgSessionDuration, 0) / data.visits.length
+    data.visits.reduce((sum, day) => sum + day.avgSessionDuration, 0) /
+      data.visits.length
   );
 
   return (
     <div className="min-h-screen bg-gray-50 text-black p-6">
       {/* Header */}
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
-        <p className="text-gray-600">Monitor your website performance and customer data</p>
+        <h1 className="text-3xl font-bold text-gray-900">
+          Analytics Dashboard
+        </h1>
+        <p className="text-gray-600">
+          Monitor your website performance and customer data
+        </p>
       </header>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        
         <StatsCard
           title="Total Visitors"
           value={totalVisitors.toLocaleString()}
@@ -91,11 +108,12 @@ export default function DashboardPage() {
           value={`${avgBounceRate}%`}
           icon={Activity}
         />
-      
-        
+
         <StatsCard
           title="Avg. Session Duration"
-          value={`${Math.floor(avgSessionDuration / 60)}m ${avgSessionDuration % 60}s`}
+          value={`${Math.floor(avgSessionDuration / 60)}m ${
+            avgSessionDuration % 60
+          }s`}
           icon={Clock}
         />
       </div>

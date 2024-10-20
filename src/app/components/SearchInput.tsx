@@ -1,4 +1,4 @@
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 import { Input } from "../../../components/ui/input";
 
 interface SearchInputProps {
@@ -7,7 +7,11 @@ interface SearchInputProps {
   placeholder?: string;
 }
 
-const SearchInput = ({ value, onChange, placeholder = "Search..." }: SearchInputProps) => {
+const SearchInput = ({
+  value,
+  onChange,
+  placeholder = "Search...",
+}: SearchInputProps) => {
   return (
     <div className="relative">
       <Search className="absolute left-2 top-2.5 h-5 w-4 text-gray-500" />
