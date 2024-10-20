@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      borderColor: {
+        border: "hsl(var(--border))",
+      },
     },
   },
   plugins: [],
